@@ -1,0 +1,5 @@
+[
+  { "codigoPeca": "FO-1120", "descricao": "Filtro de óleo", "quantidade": 6, "local": "Pátio Campinas Aeroporto (CPS)", "custoUnitario": 34 },
+  { "codigoPeca": "PF-2210", "descricao": "Pastilha de freio dianteira (jogo)", "quantidade": 0, "local": "Pátio Recife Aeroporto (REC)", "custoUnitario": 150 },
+  { "codigoPeca": "BL-5531", "descricao": "Bieleta dianteira direita", "quantidade": 0, "local": "Pátio Curitiba Afonso Pena (CWB)", "custoUnitario": 140 }
+]

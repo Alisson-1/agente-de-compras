@@ -1,0 +1,18 @@
+{
+  "name": "copiloto-compras",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Demo didática de padrões agênticos: Copiloto de Compras de Peças (dados fictícios).",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @copiloto/api --filter @copiloto/web dev",
+    "ingest": "pnpm --filter @copiloto/api ingest",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter @copiloto/api start",
+    "ensaio": "pnpm --filter @copiloto/api ensaio"
+  }
+}

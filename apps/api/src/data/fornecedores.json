@@ -1,0 +1,137 @@
+[
+  {
+    "id": "FOR-01",
+    "nome": "Mega Desconto Autopeças",
+    "cidade": "Caruaru",
+    "uf": "PE",
+    "notaQualidade": 3.2,
+    "entregasNoPrazoPct": 81,
+    "taxaDevolucaoPct": 7.5
+  },
+  {
+    "id": "FOR-02",
+    "nome": "Peças Express Nordeste",
+    "cidade": "Jaboatão",
+    "uf": "PE",
+    "notaQualidade": 3.5,
+    "entregasNoPrazoPct": 95,
+    "taxaDevolucaoPct": 3.4
+  },
+  {
+    "id": "FOR-03",
+    "nome": "Distribuidora Boa Viagem",
+    "cidade": "Recife",
+    "uf": "PE",
+    "notaQualidade": 4.5,
+    "entregasNoPrazoPct": 94,
+    "taxaDevolucaoPct": 1.2
+  },
+  {
+    "id": "FOR-04",
+    "nome": "Capibaribe Peças Originais",
+    "cidade": "Recife",
+    "uf": "PE",
+    "notaQualidade": 4.1,
+    "entregasNoPrazoPct": 90,
+    "taxaDevolucaoPct": 1.8
+  },
+  {
+    "id": "FOR-05",
+    "nome": "Central Revisão Campinas",
+    "cidade": "Campinas",
+    "uf": "SP",
+    "notaQualidade": 4,
+    "entregasNoPrazoPct": 92,
+    "taxaDevolucaoPct": 2
+  },
+  {
+    "id": "FOR-06",
+    "nome": "Lubrificantes Barão Distribuidora",
+    "cidade": "Campinas",
+    "uf": "SP",
+    "notaQualidade": 4.4,
+    "entregasNoPrazoPct": 97,
+    "taxaDevolucaoPct": 0.9
+  },
+  {
+    "id": "FOR-07",
+    "nome": "Rota Peças Atacado",
+    "cidade": "Sumaré",
+    "uf": "SP",
+    "notaQualidade": 3.6,
+    "entregasNoPrazoPct": 86,
+    "taxaDevolucaoPct": 3.9
+  },
+  {
+    "id": "FOR-08",
+    "nome": "Atacadão Anhanguera Autopeças",
+    "cidade": "Campinas",
+    "uf": "SP",
+    "notaQualidade": 4.3,
+    "entregasNoPrazoPct": 96,
+    "taxaDevolucaoPct": 1.1
+  },
+  {
+    "id": "FOR-09",
+    "nome": "Minas Direção e Suspensão",
+    "cidade": "Belo Horizonte",
+    "uf": "MG",
+    "notaQualidade": 4.6,
+    "entregasNoPrazoPct": 96,
+    "taxaDevolucaoPct": 0.8
+  },
+  {
+    "id": "FOR-10",
+    "nome": "Contorno Autopeças Pesadas",
+    "cidade": "Betim",
+    "uf": "MG",
+    "notaQualidade": 3.9,
+    "entregasNoPrazoPct": 88,
+    "taxaDevolucaoPct": 2.6
+  },
+  {
+    "id": "FOR-11",
+    "nome": "Recondicionadora Pampulha",
+    "cidade": "Belo Horizonte",
+    "uf": "MG",
+    "notaQualidade": 2.7,
+    "entregasNoPrazoPct": 74,
+    "taxaDevolucaoPct": 9.4
+  },
+  {
+    "id": "FOR-12",
+    "nome": "Direção Total Contagem",
+    "cidade": "Contagem",
+    "uf": "MG",
+    "notaQualidade": 4.2,
+    "entregasNoPrazoPct": 93,
+    "taxaDevolucaoPct": 1.5
+  },
+  {
+    "id": "FOR-13",
+    "nome": "Suspensão Forte Curitiba",
+    "cidade": "Curitiba",
+    "uf": "PR",
+    "notaQualidade": 4.3,
+    "entregasNoPrazoPct": 93,
+    "taxaDevolucaoPct": 1.4
+  },
+  {
+    "id": "FOR-14",
+    "nome": "Araucária Peças Originais",
+    "cidade": "Araucária",
+    "uf": "PR",
+    "notaQualidade": 4.4,
+    "entregasNoPrazoPct": 92,
+    "taxaDevolucaoPct": 1.3
+  },
+  {
+    "id": "FOR-15",
+    "nome": "Peça Fácil Pinhais",
+    "cidade": "Pinhais",
+    "uf": "PR",
+    "notaQualidade": 3.1,
+    "entregasNoPrazoPct": 79,
+    "taxaDevolucaoPct": 8.2
+  }
+]

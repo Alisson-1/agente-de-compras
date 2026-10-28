@@ -1,0 +1,463 @@
+[
+  {
+    "numero": "COT-0412-A",
+    "pedidoId": "PED-2026-0412",
+    "fornecedorId": "FOR-01",
+    "dataEnvio": "2026-10-22",
+    "validade": "2026-10-29",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Pastilha de freio dianteira (jogo)",
+        "quantidade": 1,
+        "precoUnitario": 89,
+        "marca": "FreioMax Genérica",
+        "tipo": "paralela"
+      },
+      {
+        "descricao": "Disco de freio dianteiro",
+        "quantidade": 2,
+        "precoUnitario": 139,
+        "marca": "FreioMax Genérica",
+        "tipo": "paralela"
+      }
+    ],
+    "frete": 25,
+    "prazoEntregaHoras": 20,
+    "garantiaMeses": 3
+  },
+  {
+    "numero": "COT-0412-B",
+    "pedidoId": "PED-2026-0412",
+    "fornecedorId": "FOR-02",
+    "dataEnvio": "2026-10-22",
+    "validade": "2026-10-29",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Pastilha de freio dianteira (jogo)",
+        "quantidade": 1,
+        "precoUnitario": 260,
+        "marca": "Montadora Aurora",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Disco de freio dianteiro",
+        "quantidade": 2,
+        "precoUnitario": 420,
+        "marca": "Montadora Aurora",
+        "tipo": "original"
+      }
+    ],
+    "frete": 80,
+    "prazoEntregaHoras": 6,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0412-C",
+    "pedidoId": "PED-2026-0412",
+    "fornecedorId": "FOR-03",
+    "dataEnvio": "2026-10-22",
+    "validade": "2026-10-29",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Pastilha de freio dianteira (jogo)",
+        "quantidade": 1,
+        "precoUnitario": 145,
+        "marca": "Travanorte",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Disco de freio dianteiro",
+        "quantidade": 2,
+        "precoUnitario": 210,
+        "marca": "Travanorte",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 30,
+    "prazoEntregaHoras": 16,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0412-D",
+    "pedidoId": "PED-2026-0412",
+    "fornecedorId": "FOR-04",
+    "dataEnvio": "2026-10-17",
+    "validade": "2026-10-21",
+    "status": "expirada",
+    "itens": [
+      {
+        "descricao": "Pastilha de freio dianteira (jogo)",
+        "quantidade": 1,
+        "precoUnitario": 180,
+        "marca": "Montadora Aurora",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Disco de freio dianteiro",
+        "quantidade": 2,
+        "precoUnitario": 260,
+        "marca": "Montadora Aurora",
+        "tipo": "original"
+      }
+    ],
+    "frete": 0,
+    "prazoEntregaHoras": 30,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0418-A",
+    "pedidoId": "PED-2026-0418",
+    "fornecedorId": "FOR-05",
+    "dataEnvio": "2026-10-21",
+    "validade": "2026-11-04",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Filtro de óleo",
+        "quantidade": 1,
+        "precoUnitario": 38,
+        "marca": "Filtrex",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Óleo de motor 5W30 (litro)",
+        "quantidade": 4,
+        "precoUnitario": 42,
+        "marca": "Lubrinorte",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Filtro de ar do motor",
+        "quantidade": 1,
+        "precoUnitario": 55,
+        "marca": "Filtrex",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Vela de ignição (jogo com 4)",
+        "quantidade": 1,
+        "precoUnitario": 140,
+        "marca": "Faísca Pro",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 20,
+    "prazoEntregaHoras": 36,
+    "garantiaMeses": 6
+  },
+  {
+    "numero": "COT-0418-B",
+    "pedidoId": "PED-2026-0418",
+    "fornecedorId": "FOR-06",
+    "dataEnvio": "2026-10-21",
+    "validade": "2026-11-04",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Filtro de óleo",
+        "quantidade": 1,
+        "precoUnitario": 45,
+        "marca": "Montadora Vento",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Óleo de motor 5W30 (litro)",
+        "quantidade": 4,
+        "precoUnitario": 48,
+        "marca": "Montadora Vento",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Filtro de ar do motor",
+        "quantidade": 1,
+        "precoUnitario": 62,
+        "marca": "Montadora Vento",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Vela de ignição (jogo com 4)",
+        "quantidade": 1,
+        "precoUnitario": 190,
+        "marca": "Montadora Vento",
+        "tipo": "original"
+      }
+    ],
+    "frete": 60,
+    "prazoEntregaHoras": 24,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0418-C",
+    "pedidoId": "PED-2026-0418",
+    "fornecedorId": "FOR-07",
+    "dataEnvio": "2026-10-21",
+    "validade": "2026-11-04",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Filtro de óleo",
+        "quantidade": 1,
+        "precoUnitario": 25,
+        "marca": "Econopeças",
+        "tipo": "paralela"
+      },
+      {
+        "descricao": "Óleo de motor 5W30 (litro)",
+        "quantidade": 4,
+        "precoUnitario": 35,
+        "marca": "Econopeças",
+        "tipo": "paralela"
+      },
+      {
+        "descricao": "Filtro de ar do motor",
+        "quantidade": 1,
+        "precoUnitario": 38,
+        "marca": "Econopeças",
+        "tipo": "paralela"
+      },
+      {
+        "descricao": "Vela de ignição (jogo com 4)",
+        "quantidade": 1,
+        "precoUnitario": 110,
+        "marca": "Econopeças",
+        "tipo": "paralela"
+      }
+    ],
+    "frete": 35,
+    "prazoEntregaHoras": 72,
+    "garantiaMeses": 3
+  },
+  {
+    "numero": "COT-0418-D",
+    "pedidoId": "PED-2026-0418",
+    "fornecedorId": "FOR-08",
+    "dataEnvio": "2026-10-21",
+    "validade": "2026-11-04",
+    "status": "pendente",
+    "itens": [
+      {
+        "descricao": "Filtro de óleo",
+        "quantidade": 1,
+        "precoUnitario": 30,
+        "marca": "Filtrex",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Óleo de motor 5W30 (litro)",
+        "quantidade": 4,
+        "precoUnitario": 36,
+        "marca": "Lubrinorte",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Filtro de ar do motor",
+        "quantidade": 1,
+        "precoUnitario": 40,
+        "marca": "Filtrex",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Vela de ignição (jogo com 4)",
+        "quantidade": 1,
+        "precoUnitario": 120,
+        "marca": "Faísca Pro",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 0,
+    "prazoEntregaHoras": 24,
+    "garantiaMeses": 6
+  },
+  {
+    "numero": "COT-0421-A",
+    "pedidoId": "PED-2026-0421",
+    "fornecedorId": "FOR-09",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-10-30",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Caixa de direção hidráulica",
+        "quantidade": 1,
+        "precoUnitario": 5480,
+        "marca": "Montadora Trilha",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Terminal de direção",
+        "quantidade": 2,
+        "precoUnitario": 190,
+        "marca": "Montadora Trilha",
+        "tipo": "original"
+      }
+    ],
+    "frete": 90,
+    "prazoEntregaHoras": 20,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0421-B",
+    "pedidoId": "PED-2026-0421",
+    "fornecedorId": "FOR-10",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-10-30",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Caixa de direção hidráulica",
+        "quantidade": 1,
+        "precoUnitario": 4650,
+        "marca": "Direcional Sul",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Terminal de direção",
+        "quantidade": 2,
+        "precoUnitario": 150,
+        "marca": "Direcional Sul",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 120,
+    "prazoEntregaHoras": 36,
+    "garantiaMeses": 6
+  },
+  {
+    "numero": "COT-0421-C",
+    "pedidoId": "PED-2026-0421",
+    "fornecedorId": "FOR-11",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-10-30",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Caixa de direção hidráulica",
+        "quantidade": 1,
+        "precoUnitario": 3900,
+        "marca": "Recon BH",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Terminal de direção",
+        "quantidade": 2,
+        "precoUnitario": 130,
+        "marca": "Recon BH",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 80,
+    "prazoEntregaHoras": 24,
+    "garantiaMeses": 6
+  },
+  {
+    "numero": "COT-0421-D",
+    "pedidoId": "PED-2026-0421",
+    "fornecedorId": "FOR-12",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-10-30",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Caixa de direção hidráulica",
+        "quantidade": 1,
+        "precoUnitario": 6900,
+        "marca": "Montadora Trilha",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Terminal de direção",
+        "quantidade": 2,
+        "precoUnitario": 210,
+        "marca": "Montadora Trilha",
+        "tipo": "original"
+      }
+    ],
+    "frete": 0,
+    "prazoEntregaHoras": 16,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0425-A",
+    "pedidoId": "PED-2026-0425",
+    "fornecedorId": "FOR-13",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-11-06",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Bieleta dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 145,
+        "marca": "Amortec Sul",
+        "tipo": "homologada"
+      },
+      {
+        "descricao": "Bucha da bandeja dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 85,
+        "marca": "Amortec Sul",
+        "tipo": "homologada"
+      }
+    ],
+    "frete": 25,
+    "prazoEntregaHoras": 24,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0425-B",
+    "pedidoId": "PED-2026-0425",
+    "fornecedorId": "FOR-14",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-11-06",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Bieleta dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 160,
+        "marca": "Montadora Brisa",
+        "tipo": "original"
+      },
+      {
+        "descricao": "Bucha da bandeja dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 92,
+        "marca": "Montadora Brisa",
+        "tipo": "original"
+      }
+    ],
+    "frete": 0,
+    "prazoEntregaHoras": 30,
+    "garantiaMeses": 12
+  },
+  {
+    "numero": "COT-0425-C",
+    "pedidoId": "PED-2026-0425",
+    "fornecedorId": "FOR-15",
+    "dataEnvio": "2026-10-23",
+    "validade": "2026-11-06",
+    "status": "respondida",
+    "itens": [
+      {
+        "descricao": "Bieleta dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 80,
+        "marca": "Rodabem",
+        "tipo": "paralela"
+      },
+      {
+        "descricao": "Bucha da bandeja dianteira direita",
+        "quantidade": 1,
+        "precoUnitario": 40,
+        "marca": "Rodabem",
+        "tipo": "paralela"
+      }
+    ],
+    "frete": 20,
+    "prazoEntregaHoras": 48,
+    "garantiaMeses": 3
+  }
+]

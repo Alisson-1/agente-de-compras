@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+  - packages/*
+
+# Pacotes com script de instalação (binários nativos) liberados explicitamente.
+allowBuilds:
+  esbuild: true
+  onnxruntime-node: true
+  protobufjs: true
+  sharp: true

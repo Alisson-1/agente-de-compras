@@ -1,0 +1,133 @@
+/* Localiza — tokens gerados a partir de tokens.json. Não edite à mão. */
+:root {
+  --tertiary-default: #01602a;
+  --tertiary-emphasis-high: #09732e;
+  --tertiary-emphasis-higher: #cefdaf;
+  --tertiary-emphasis-low: #3a9929;
+  --tertiary-emphasis-lower: #66c622;
+  --tertiary-contrast-auto: #ffffff;
+  --tertiary-contrast-default: #01602a;
+  --secondary-default: #78de1f;
+  --secondary-emphasis-high: #01602a;
+  --secondary-emphasis-higher: #003418;
+  --secondary-emphasis-low: #54b026;
+  --secondary-emphasis-lower: #cefdaf;
+  --secondary-contrast-auto: #01602a;
+  --secondary-contrast-default: #01602a;
+  --primary-default: #018444;
+  --primary-emphasis-high: #005c3a;
+  --primary-emphasis-higher: #003827;
+  --primary-emphasis-low: #45c983;
+  --primary-emphasis-lower: #a9ecc1;
+  --primary-contrast-auto: #ffffff;
+  --primary-contrast-default: #003827;
+  --success-default: #17b05d;
+  --success-emphasis-high: #006f41;
+  --success-emphasis-higher: #024a32;
+  --success-emphasis-low: #8be5af;
+  --success-emphasis-lower: #d1f5dc;
+  --success-contrast-auto: #005c3a;
+  --success-contrast-default: #005c3a;
+  --info-default: #007dbb;
+  --info-emphasis-high: #006ba1;
+  --info-emphasis-higher: #0b4260;
+  --info-emphasis-low: #75ccff;
+  --info-emphasis-lower: #d8effd;
+  --info-contrast-auto: #ffffff;
+  --info-contrast-default: #09547c;
+  --warning-default: #ffcf33;
+  --warning-emphasis-high: #f0c000;
+  --warning-emphasis-higher: #524000;
+  --warning-emphasis-low: #f6e8c1;
+  --warning-emphasis-lower: #fdf3d3;
+  --warning-contrast-auto: #473600;
+  --warning-contrast-default: #473600;
+  --critical-default: #d92020;
+  --critical-emphasis-high: #c61616;
+  --critical-emphasis-higher: #720d0d;
+  --critical-emphasis-low: #f99696;
+  --critical-emphasis-lower: #ffe4e4;
+  --critical-contrast-auto: #ffffff;
+  --critical-contrast-default: #d92020;
+  --neutral-surface-default: #ffffff;
+  --neutral-surface-low: #f2f2f2;
+  --neutral-surface-high: #e6e6e6;
+  --neutral-surface-default-inverse: #4a4a4a;
+  --neutral-background-default: #f2f2f2;
+  --neutral-background-default-inverse: #262626;
+  --neutral-text-high: #262626;
+  --neutral-text-default: #4a4a4a;
+  --neutral-text-low: #6e6e6e;
+  --neutral-text-default-inverse: #ffffff;
+  --neutral-border-high: #4a4a4a;
+  --neutral-border-default: #919191;
+  --neutral-border-low: #e6e6e6;
+  --neutral-icon-high: #4a4a4a;
+  --neutral-icon-default: #919191;
+  --neutral-icon-low: #6e6e6e;
+  --state-focused: #005c3a;
+  --state-focused-inverse: #cefdaf;
+  --state-hovered: rgba(0,0,0,0.15);
+  --state-pressed: rgba(0,0,0,0.25);
+  --state-hovered-inverse: rgba(255,255,255,0.15);
+  --state-disabled: #c2c2c2;
+  --state-disabled-contrast: #919191;
+  --overlay: rgba(74,74,74,0.8);
+  --web-text: #383838;
+  --web-green: #00984a;
+  --font-sans: Inter, Arial, Helvetica, sans-serif;
+  --font-serif: Aleo, Georgia, serif;
+  --spacing-0: 0px;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-7: 56px;
+  --spacing-8: 64px;
+  --spacing-9: 72px;
+  --spacing-10: 80px;
+  --spacing-11: 88px;
+  --spacing-12: 96px;
+  --spacing-13: 104px;
+  --spacing-14: 112px;
+  --spacing-15: 120px;
+  --radius-sharp: 4px;
+  --radius-main: 12px;
+  --radius-soft: 16px;
+  --radius-pill: 400px;
+  --radius-circle: 50%;
+  --shadow-default: 0px 2px 4px 1px rgba(0,0,0,0.15);
+  --shadow-high: 0px 4px 16px 2px rgba(0,0,0,0.15);
+  --border-weak: 1px;
+  --border-normal: 2px;
+  --border-strong: 4px;
+  --input-sm: 32px;
+  --input-md: 40px;
+  --input-lg: 52px;
+  --icon-button-sm: 40px;
+  --icon-button-md: 48px;
+  --icon-button-lg: 56px;
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 672px;
+  --breakpoint-md: 1200px;
+  --breakpoint-lg: 1600px;
+}
+
+/* Estilos de texto (classes utilitárias) */
+.lz-text-display-xl { font-family: var(--font-serif); font-size: 64px; line-height: 1.2; font-weight: 400; }
+.lz-text-display-lg { font-family: var(--font-serif); font-size: 48px; line-height: 1.2; font-weight: 400; }
+.lz-text-display-md { font-family: var(--font-serif); font-size: 40px; line-height: 1.3; font-weight: 400; }
+.lz-text-display-sm { font-family: var(--font-serif); font-size: 32px; line-height: 1.3; font-weight: 400; }
+.lz-text-display-xs { font-family: var(--font-serif); font-size: 24px; line-height: 1.4; font-weight: 500; }
+.lz-text-heading-xl { font-family: var(--font-sans); font-size: 32px; line-height: 1.3; font-weight: 700; }
+.lz-text-heading-lg { font-family: var(--font-sans); font-size: 24px; line-height: 1.4; font-weight: 700; }
+.lz-text-heading-md { font-family: var(--font-sans); font-size: 20px; line-height: 1.4; font-weight: 600; }
+.lz-text-heading-sm { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; font-weight: 600; }
+.lz-text-heading-xs { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 600; }
+.lz-text-heading-xxs { font-family: var(--font-sans); font-size: 12px; line-height: 1.6; font-weight: 600; }
+.lz-text-body-md { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; font-weight: 400; }
+.lz-text-body-sm { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 400; }
+.lz-text-body-xs { font-family: var(--font-sans); font-size: 12px; line-height: 1.6; font-weight: 400; }
+.lz-text-label { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; font-weight: 500; }

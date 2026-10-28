@@ -1,0 +1,63 @@
+---
+description: Usar o design system da Localiza em toda interface do app web (cores, tipografia, espaçamento, componentes e voz)
+globs: apps/web/**/*.{tsx,ts,css}
+alwaysApply: true
+---
+
+# Design system da Localiza
+
+Toda interface em `apps/web` usa o design system em `design-system/localiza/`. Antes de criar ou alterar tela, leia `design-system/localiza/README.md`, que explica cor, tipografia, voz, formas e estados.
+
+## Como consumir
+
+- Copie a pasta `design-system/localiza/` para `apps/web/src/design-system/localiza/` na primeira etapa do projeto.
+- Importe os estilos uma única vez, em `apps/web/src/main.tsx`:
+  ```ts
+  import "./design-system/localiza/tokens.css";
+  import "./design-system/localiza/components.css";
+  ```
+- Use os componentes prontos antes de criar os seus:
+  ```ts
+  import { Button, IconButton, TextField, Checkbox, Chip, Alert, Tabs, Card, Tooltip, Accordion } from "./design-system/localiza/components";
+  ```
+  Leia o guia de cada um em `design-system/localiza/components/<Nome>.md` antes de usá-lo.
+- Componentes novos (tabela de cotações, cards de proposta, chips de padrão, chat) são montados **só com as variáveis CSS de `tokens.css`** (`var(--primary-default)`, `var(--spacing-2)`, `var(--radius-main)` etc.). **Nunca use hex soltos nem px fora da grade de 8px.**
+- Texto: use as classes `lz-text-*` de `tokens.css` (`lz-text-heading-lg`, `lz-text-body-md`, `lz-text-label`...) ou as mesmas medidas.
+
+## Regras que não podem ser quebradas
+
+- O verde profundo `--tertiary-default` é o protagonista: header, faixa do Copiloto, títulos de seção.
+- O lima `--secondary-default` **nunca** é usado como texto sobre branco. Sobre lima, o texto é sempre `--secondary-contrast-auto`.
+- O botão de ação principal é `variant="primary"`, no máximo um por bloco.
+- Cores de status (`success`, `info`, `warning`, `critical`) só para feedback, sempre com ícone ou palavra. Fundo `*-emphasis-lower` + texto `*-emphasis-higher` (use `<Alert>`).
+- Bordas antes de sombras. `--shadow-default` só em itens elevados ou ativos.
+- Raio `--radius-main` (12px) em botões, campos, cards e alertas; `--radius-pill` em chips.
+- Foco visível: contorno de 2px `--state-focused` afastado 2px.
+- Inter em toda a interface. Aleo (serif) no máximo em um título de destaque por tela.
+- Sem gradientes, sem sombras decorativas, sem emoji na interface.
+
+## Voz dos textos da interface
+
+- Português do Brasil, falando com "você"; tom coloquial, positivo e direto.
+- Títulos em caixa de sentença; caixa-alta só em sobretítulos de 12px.
+- Botões são verbos: "Emitir ordem de compra", "Solicitar nova cotação", "Aprovar como gestor".
+- Erros dizem o que fazer: "Escolha uma cotação válida para continuar.", não "Erro de validação".
+
+## Mapeamento para o Copiloto de Compras
+
+| Elemento | Token ou componente |
+|---|---|
+| Header do app e topo do Copiloto | fundo `--tertiary-default`, texto `--neutral-text-default-inverse` |
+| Chip de padrão: em uso | fundo `--secondary-default`, texto `--secondary-contrast-auto`, animação de pulso |
+| Chip de padrão: já usado | `<Chip selected>` (verde de ação claro) com ✓ |
+| Chip de padrão: aguardando você (HITL) | fundo `--warning-emphasis-lower`, texto `--warning-emphasis-higher`, borda `--warning-default` |
+| Chip de padrão: não usado | `<Chip>` em repouso |
+| Card de proposta | `<Card variant="outlined">` com botões `primary` (Aprovar), `outline` (Editar) e `ghost` (Recusar) |
+| "Aprovar como gestor" | `<Button variant="secondary">` com selo "Gestor" |
+| Alerta do agente proativo / validador | `<Alert tone="warning">` ou `<Alert tone="critical">` |
+| Cotação recomendada na tabela | linha com fundo `--primary-emphasis-lower` e borda esquerda `--border-strong` em `--primary-default` |
+| Citação do manual (RAG) | `<Tooltip>` ou popover com `--shadow-high` |
+
+## Ícones e logo
+
+Os SVGs do design system não vêm neste pacote. Use ícones de linha arredondada com traço de 2px (Lucide: `lucide-react`), nas cores `--tertiary-default` sobre branco ou `--secondary-default` sobre o verde profundo. Não use logo: o app é uma demo com dados fictícios.

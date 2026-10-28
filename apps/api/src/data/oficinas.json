@@ -1,0 +1,6 @@
+[
+  { "id": "OF-REC-01", "nome": "Mecânica Parceira Boa Vista", "cidade": "Recife", "uf": "PE", "contato": "(81) 3000-0101" },
+  { "id": "OF-CPS-01", "nome": "Centro Automotivo Taquaral", "cidade": "Campinas", "uf": "SP", "contato": "(19) 3000-0202" },
+  { "id": "OF-BHZ-01", "nome": "Oficina Parceira Savassi Motors", "cidade": "Belo Horizonte", "uf": "MG", "contato": "(31) 3000-0303" },
+  { "id": "OF-CWB-01", "nome": "Auto Center Batel Parceiro", "cidade": "Curitiba", "uf": "PR", "contato": "(41) 3000-0404" }
+]

@@ -1,0 +1,11 @@
+{
+  "limiteAlcadaComprador": 5000,
+  "tiposPermitidosItemSeguranca": ["original", "homologada"],
+  "prazoMaximoUrgenteHoras": 24,
+  "notaMinimaFornecedor": 3,
+  "vetarCotacaoExpirada": true,
+  "minimoCotacoesRespondidas": 3,
+  "valorExigeMinimoCotacoes": 2000,
+  "custoCarroParadoPorDia": 180,
+  "margemEmpateConsolidado": 0.05
+}
