@@ -21,13 +21,15 @@ type Caixa = {
   h: number;
   rotulo: string;
   sub?: string;
+  /** O que o nó faz e seu nome no código; aparece só no tooltip. */
+  tecnico?: string;
   tipo?: "terminal" | "humano";
 };
 
 /* Coordenadas no viewBox 960 × 790. Ramos à esquerda (barramento do router em x=60),
    validate → critic → finalize na coluna da direita, atalhos para finalize em x=920–950. */
 const RAMO = { x: 90, w: 160, h: 40 };
-const ramo = (id: string, y: number, rotulo: string, sub?: string, apelidos?: string[]): Caixa => ({
+const ramo = (id: string, y: number, rotulo: string, sub: string | undefined, tecnico: string, apelidos?: string[]): Caixa => ({
   id,
   apelidos,
   x: RAMO.x,
@@ -36,30 +38,38 @@ const ramo = (id: string, y: number, rotulo: string, sub?: string, apelidos?: st
   h: RAMO.h,
   rotulo,
   sub,
+  tecnico,
 });
 
 const CAIXAS: Caixa[] = [
-  { id: "entrada", x: 30, y: 10, w: 180, h: 44, rotulo: "START", sub: "chat ou evento da tela", tipo: "terminal" },
-  { id: "router", x: 30, y: 86, w: 180, h: 50, rotulo: "router", sub: "Routing · RAG" },
-  ramo("conceitual", 180, "conceitual", "RAG"),
-  ramo("analisarPedido", 232, "analisarPedido", "Prompt Chaining"),
-  ramo("explicar", 284, "explicar", "RAG"),
-  ramo("proporAcao", 336, "proporAcao", "Tool Use"),
-  ramo("priorizar", 388, "priorizarPedidos", "Tool Use · RAG"),
-  ramo("eventos", 440, "eventos da tela", "RAG · Tool Use", ["avaliarSelecao", "alerta", "avisarCotacao"]),
-  ramo("foraDoEscopo", 492, "foraDoEscopo", undefined, ["semPedido"]),
-  ramo("planner", 620, "planner", "Planning"),
-  { id: "enriquecer", x: 280, y: 620, w: 150, h: 40, rotulo: "enriquecer", sub: "Parallelization · Tool Use" },
-  { id: "custos", x: 455, y: 584, w: 105, h: 32, rotulo: "custos" },
-  { id: "logistica", x: 455, y: 624, w: 105, h: 32, rotulo: "logística" },
-  { id: "qualidade", x: 455, y: 664, w: 105, h: 32, rotulo: "qualidade" },
-  { id: "comprador", x: 590, y: 620, w: 130, h: 40, rotulo: "comprador", sub: "Multi-Agent" },
-  { id: "validate", x: 780, y: 228, w: 120, h: 50, rotulo: "validate", sub: "código, sem LLM" },
-  { id: "critic", x: 780, y: 380, w: 120, h: 50, rotulo: "critic", sub: "Reflection · RAG" },
-  { id: "finalize", x: 780, y: 560, w: 120, h: 48, rotulo: "finalize", sub: "HITL" },
-  { id: "fim", x: 800, y: 650, w: 80, h: 30, rotulo: "END", tipo: "terminal" },
-  { id: "humano", x: 770, y: 695, w: 140, h: 40, rotulo: "humano aprova", sub: "fora do grafo", tipo: "humano" },
+  { id: "entrada", x: 30, y: 10, w: 180, h: 44, rotulo: "Início", sub: "mensagem ou ação na tela", tecnico: "START", tipo: "terminal" },
+  { id: "router", x: 30, y: 86, w: 180, h: 50, rotulo: "Entende o pedido", sub: "Routing · RAG", tecnico: "decide o caminho (router)" },
+  ramo("conceitual", 180, "Dúvida geral", "RAG", "consulta a base (conceitual)"),
+  ramo("analisarPedido", 232, "Analisa o pedido", "Prompt Chaining", "passo a passo (analisarPedido)"),
+  ramo("explicar", 284, "Explica", "RAG", "consulta a base (explicar)"),
+  ramo("proporAcao", 336, "Sugere uma ação", "Tool Use", "usa o sistema (proporAcao)"),
+  ramo("priorizar", 388, "Prioriza pedidos", "Tool Use · RAG", "usa o sistema e a base (priorizarPedidos)"),
+  ramo("eventos", 440, "Reage à tela", "RAG · Tool Use", "seleção, alertas e cotações (eventos da tela)", ["avaliarSelecao", "alerta", "avisarCotacao"]),
+  ramo("foraDoEscopo", 492, "Fora do assunto", undefined, "foraDoEscopo", ["semPedido"]),
+  ramo("planner", 620, "Planeja", "Planning", "monta o roteiro (planner)"),
+  { id: "enriquecer", x: 280, y: 620, w: 150, h: 40, rotulo: "Reúne dados", sub: "Parallelization · Tool Use", tecnico: "várias buscas juntas (enriquecer)" },
+  { id: "custos", x: 455, y: 578, w: 105, h: 30, rotulo: "Custos", tecnico: "custos" },
+  { id: "logistica", x: 455, y: 625, w: 105, h: 30, rotulo: "Logística", tecnico: "logistica" },
+  { id: "qualidade", x: 455, y: 672, w: 105, h: 30, rotulo: "Qualidade", tecnico: "qualidade" },
+  { id: "comprador", x: 590, y: 620, w: 130, h: 40, rotulo: "Decide a compra", sub: "Multi-Agent", tecnico: "junta as opiniões (comprador)" },
+  { id: "validate", x: 780, y: 228, w: 120, h: 50, rotulo: "Confere regras", sub: "código, sem LLM", tecnico: "checagem fixa (validate)" },
+  { id: "critic", x: 780, y: 380, w: 120, h: 50, rotulo: "Revisa", sub: "Reflection · RAG", tecnico: "autocrítica (critic)" },
+  { id: "finalize", x: 780, y: 560, w: 120, h: 48, rotulo: "Responde", sub: "HITL", tecnico: "pede aprovação (finalize)" },
+  { id: "fim", x: 800, y: 650, w: 80, h: 30, rotulo: "Fim", tecnico: "END", tipo: "terminal" },
+  { id: "humano", x: 770, y: 695, w: 140, h: 40, rotulo: "Você aprova", sub: "fora do grafo", tecnico: "decisão final é sua", tipo: "humano" },
 ];
+
+/** Nós que chamam o LLM (agents/* via executarAgente); recebem o selo "LLM". */
+const USA_LLM = new Set([
+  "router", "conceitual", "analisarPedido", "explicar", "proporAcao", "priorizar", "eventos",
+  "planner", "custos", "logistica", "qualidade", "comprador", "critic",
+]);
+const SELO = { w: 30, h: 14, sobra: 8 };
 
 type Aresta = {
   de: string;
@@ -112,12 +122,12 @@ const ARESTAS: Aresta[] = [
 ];
 
 const ROTULOS_ARESTA = [
-  { x: 72, y: 160, texto: "intenção", ancora: "start" as const },
-  { x: 945, y: 192, texto: "direto para finalize", ancora: "end" as const },
-  { x: 756, y: 226, texto: "reprovou: volta à origem (máx. 2)", ancora: "end" as const },
-  { x: 700, y: 440, texto: "reprovou: nova rodada (máx. 2)", ancora: "end" as const },
-  { x: 665, y: 755, texto: "baixa confiança: escala ao humano", ancora: "start" as const },
-  { x: 455, y: 578, texto: "em paralelo · Multi-Agent · RAG", ancora: "start" as const },
+  { x: 72, y: 160, texto: "conforme o pedido", ancora: "start" as const },
+  { x: 945, y: 192, texto: "direto para a resposta", ancora: "end" as const },
+  { x: 756, y: 226, texto: "não passou: refaz (até 2x)", ancora: "end" as const },
+  { x: 700, y: 440, texto: "não passou: nova rodada (até 2x)", ancora: "end" as const },
+  { x: 665, y: 755, texto: "pouca certeza: chama uma pessoa", ancora: "start" as const },
+  { x: 280, y: 604, texto: "em paralelo · Multi-Agent · RAG", ancora: "start" as const },
 ];
 
 export function Arquitetura({ ativos, percorridos }: Props) {
@@ -150,10 +160,13 @@ export function Arquitetura({ ativos, percorridos }: Props) {
           <li>
             <span className="arq__amostra arq__amostra--tracejada" /> Atalho ou retorno
           </li>
+          <li>
+            <span className="arq__selo-llm">LLM</span> Usa IA
+          </li>
         </ul>
       </div>
 
-      <svg className="arq-grafo" viewBox="0 0 960 790" role="img" aria-label="Grafo do agente: router, caminhos por intenção, validate, critic e finalize">
+      <svg className="arq-grafo" viewBox="0 0 960 790" role="img" aria-label="Grafo do agente: entende o pedido, segue o caminho certo, confere regras, revisa e responde para você aprovar">
         <defs>
           <marker id="arq-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" className="arq-seta" />
@@ -165,7 +178,7 @@ export function Arquitetura({ ativos, percorridos }: Props) {
 
         <rect x="76" y="568" width="658" height="140" rx="16" className="arq-grupo" />
         <text x="88" y="560" className="arq-grupo__rotulo">
-          recomendar
+          recomendar compra
         </text>
 
         {arestas.map((a, i) => {
@@ -190,6 +203,7 @@ export function Arquitetura({ ativos, percorridos }: Props) {
           const estado = ativa(c) ? "ativa" : passou(c.id) ? "percorrida" : "";
           return (
             <g key={c.id} className={["arq-caixa", c.tipo ? `arq-caixa--${c.tipo}` : "", estado ? `arq-caixa--${estado}` : ""].join(" ")}>
+              {c.tecnico ? <title>{c.tecnico}</title> : null}
               <rect x={c.x} y={c.y} width={c.w} height={c.h} rx={c.tipo === "terminal" ? c.h / 2 : 10} />
               <text x={c.x + c.w / 2} y={c.sub ? c.y + c.h / 2 - 3 : c.y + c.h / 2 + 5} textAnchor="middle" className="arq-caixa__rotulo">
                 {c.rotulo}
@@ -198,6 +212,14 @@ export function Arquitetura({ ativos, percorridos }: Props) {
                 <text x={c.x + c.w / 2} y={c.y + c.h / 2 + 13} textAnchor="middle" className="arq-caixa__sub">
                   {c.sub}
                 </text>
+              ) : null}
+              {USA_LLM.has(c.id) ? (
+                <g className="arq-llm">
+                  <rect x={c.x + c.w + SELO.sobra - SELO.w} y={c.y - SELO.h / 2} width={SELO.w} height={SELO.h} rx={SELO.h / 2} />
+                  <text x={c.x + c.w + SELO.sobra - SELO.w / 2} y={c.y + 3.5} textAnchor="middle">
+                    LLM
+                  </text>
+                </g>
               ) : null}
             </g>
           );

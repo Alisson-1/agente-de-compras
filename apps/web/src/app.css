@@ -389,4 +389,7 @@ button, input, select { font: inherit; }
 .arq-caixa--ativa rect { fill: var(--secondary-default); stroke: var(--tertiary-default); stroke-width: 3; animation: arq-pulso 1s ease-in-out infinite; }
 .arq-caixa--ativa .arq-caixa__rotulo, .arq-caixa--ativa .arq-caixa__sub { fill: var(--secondary-contrast-auto); }
 @keyframes arq-pulso { 50% { stroke-width: 6; } }
+.arq-caixa .arq-llm rect { fill: var(--tertiary-default); stroke: var(--neutral-surface-default); stroke-width: 1.5; animation: none; }
+.arq-llm text { font-size: 9px; font-weight: 700; letter-spacing: .5px; fill: var(--secondary-default); }
+.arq__selo-llm { padding: 1px 6px; border-radius: 999px; background: var(--tertiary-default); color: var(--secondary-default); font-size: 10px; font-weight: 700; letter-spacing: .5px; }
 @media (prefers-reduced-motion: reduce) { .arq-caixa--ativa rect { animation: none; } }
