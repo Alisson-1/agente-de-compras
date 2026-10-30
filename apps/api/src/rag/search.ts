@@ -53,6 +53,10 @@ export function obterExtrator(tempoMaximoMs = TEMPO_MAXIMO_MODELO_MS): Promise<E
   extratorPromise = (async () => {
     try {
       const { pipeline, env } = await import("@huggingface/transformers");
+      // O modelo vem no repositório (apps/api/models, via Git LFS): funciona sem acesso ao huggingface.co.
+      // Se a pasta faltar (clone sem LFS), baixa da internet para o cache.
+      env.localModelPath = caminho("models");
+      env.allowLocalModels = true;
       env.cacheDir = caminho(".cache", "transformers");
       const carregar = pipeline("feature-extraction", MODELO_EMBEDDINGS, { dtype: "q8" }) as unknown as Promise<Extrator>;
       const tempo = new Promise<never>((_, rej) =>
