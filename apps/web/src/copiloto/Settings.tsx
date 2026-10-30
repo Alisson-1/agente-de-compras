@@ -9,6 +9,7 @@ const PROVEDORES: { id: Provedor; nome: string }[] = [
   { id: "anthropic", nome: "Anthropic" },
   { id: "openai", nome: "OpenAI" },
   { id: "gemini", nome: "Gemini" },
+  { id: "chatgpt", nome: "ChatGPT (LLM Gate)" },
 ];
 
 export function Settings({ config, atualizar, fechar }: Props) {
@@ -71,17 +72,25 @@ export function Settings({ config, atualizar, fechar }: Props) {
             <option key={m} value={m} />
           ))}
         </datalist>
-        <TextField
-          size="md"
-          type="password"
-          label="Chave do provedor"
-          helper="Fica só neste navegador e vai no header de cada requisição. A API não grava."
-          autoComplete="off"
-          value={config.chave}
-          onChange={(e) => atualizar({ chave: e.target.value })}
-        />
+        {config.provedor === "chatgpt" ? (
+          <Alert tone="info">
+            A chave fica na API (LLM_GATE_API_KEY), no LLM Gate. O navegador não envia chave neste provedor.
+          </Alert>
+        ) : (
+          <TextField
+            size="md"
+            type="password"
+            label="Chave do provedor"
+            helper="Fica só neste navegador e vai no header de cada requisição. A API não grava."
+            autoComplete="off"
+            value={config.chave}
+            onChange={(e) => atualizar({ chave: e.target.value })}
+          />
+        )}
       </fieldset>
-      {!config.simulado && !config.chave ? <Alert tone="warning">Informe a chave para usar o LLM real.</Alert> : null}
+      {!config.simulado && config.provedor !== "chatgpt" && !config.chave ? (
+        <Alert tone="warning">Informe a chave para usar o LLM real.</Alert>
+      ) : null}
       <Button variant="outline" size="sm" onClick={fechar}>
         Fechar configurações
       </Button>

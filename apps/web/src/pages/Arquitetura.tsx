@@ -298,7 +298,7 @@ export function Arquitetura({ ativos, percorridos, pedidoContexto, aoAbrirPedido
             <p className="arq-recurso__titulo">
               <Bot size={16} aria-hidden="true" /> LLM
             </p>
-            <p>Anthropic, OpenAI ou Gemini (BYOK), sempre com saída estruturada. Ou modo simulado, roteirizado.</p>
+            <p>Anthropic, OpenAI ou Gemini (BYOK), ou ChatGPT pelo LLM Gate. Saída sempre estruturada. Ou modo simulado, roteirizado.</p>
             <p className="arq-recurso__arquivo">llm/*.ts · agents/*/prompt.md</p>
           </div>
           <div className="arq-recurso">

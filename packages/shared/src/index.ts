@@ -258,7 +258,7 @@ export const EstadoTela = z.object({
 });
 export type EstadoTela = z.infer<typeof EstadoTela>;
 
-export const Provedor = z.enum(["anthropic", "openai", "gemini"]);
+export const Provedor = z.enum(["anthropic", "openai", "gemini", "chatgpt"]);
 export type Provedor = z.infer<typeof Provedor>;
 
 export const ConfigLlm = z.object({

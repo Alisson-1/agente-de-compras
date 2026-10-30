@@ -1,6 +1,7 @@
 /**
  * Configurações do Copiloto, guardadas só no localStorage do navegador.
- * A chave do provedor (BYOK) nunca é gravada na API: vai no header de cada turno.
+ * A chave BYOK (Anthropic, OpenAI, Gemini) nunca é gravada na API: vai no header de cada turno.
+ * ChatGPT usa a chave do LLM Gate, só no ambiente da API.
  */
 import { useEffect, useState } from "react";
 import type { Provedor } from "@copiloto/shared";
@@ -18,6 +19,7 @@ export const MODELOS_SUGERIDOS: Record<Provedor, string[]> = {
   anthropic: ["claude-sonnet-5", "claude-opus-5-5", "claude-haiku-4-5-20251001"],
   openai: ["gpt-5-mini", "gpt-5"],
   gemini: ["gemini-2.5-flash", "gemini-2.5-pro"],
+  chatgpt: ["gpt-4o", "gpt-4o-mini"],
 };
 
 const PADRAO: Configuracoes = {

@@ -39,7 +39,11 @@ O **modo simulado** já vem ligado: tudo funciona sem chave e sem internet.
 
 ### Modo LLM real (BYOK)
 
-Na engrenagem do Copiloto, desligue "Modo simulado", escolha o provedor (Anthropic, OpenAI ou Gemini), o modelo e cole a chave. A chave fica **só no `localStorage` do navegador** e vai no header `x-llm-key` de cada turno; a API nunca grava. Se uma chamada falhar (rede, chave, cota), o painel mostra um aviso e **oferece** voltar ao modo simulado (não troca sozinho).
+Na engrenagem do Copiloto, desligue "Modo simulado", escolha o provedor (Anthropic, OpenAI, Gemini ou ChatGPT via LLM Gate), o modelo e, nos três primeiros, cole a chave. Essa chave fica **só no `localStorage` do navegador** e vai no header `x-llm-key` de cada turno; a API nunca grava.
+
+**ChatGPT (LLM Gate)** não usa chave no navegador. A API chama `POST {URL_LLM_GATE}chat/completions` com os headers `API_KEY` e `X-Correlation-Id` e o campo `provider` no corpo (padrão `openai`). Copie `apps/api/.env.example` para `apps/api/.env` e preencha `LLM_GATE_API_KEY`. O padrão de URL é `https://llm-gate-np.localiza.dev/llm-gate/v2/`. Variáveis já exportadas no processo prevalecem sobre o arquivo.
+
+Se uma chamada falhar (rede, chave, cota), o painel mostra um aviso e **oferece** voltar ao modo simulado (não troca sozinho).
 
 ### Prompts dos agentes
 

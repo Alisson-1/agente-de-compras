@@ -24,9 +24,13 @@ import { store } from "./data/store.js";
 import { Emissor } from "./events/emitter.js";
 import { buildGraph, estadoInicial } from "./graph/buildGraph.js";
 import { FalhaLlm, type Contexto } from "./graph/contexto.js";
+import { carregarEnvLocal } from "./llm/envLocal.js";
+import { chatgptConfigurado } from "./llm/llmGate.js";
 import { criarModelo } from "./llm/provider.js";
 import { aquecerRag, secoesDoManual } from "./rag/search.js";
 import { validarCotacao } from "./validator/rules.js";
+
+carregarEnvLocal();
 
 const PORTA = Number(process.env.PORT ?? 3333);
 const app = Fastify({ logger: { level: "warn" } });
@@ -162,7 +166,16 @@ app.post("/api/agente/turno", async (req, reply) => {
   };
 
   const chave = String(req.headers[HEADER_CHAVE_LLM] ?? "").trim();
-  if (!turno.config.simulado && !chave) {
+  const viaLlmGate = turno.config.provedor === "chatgpt";
+  if (!turno.config.simulado && viaLlmGate && !chatgptConfigurado()) {
+    await emissor.emit({
+      type: "warning",
+      code: "llm_falhou",
+      message: "ChatGPT via LLM Gate precisa de LLM_GATE_API_KEY no ambiente da API (veja apps/api/.env.example).",
+    });
+    return finalizar();
+  }
+  if (!turno.config.simulado && !viaLlmGate && !chave) {
     await emissor.emit({
       type: "warning",
       code: "llm_falhou",
