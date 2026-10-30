@@ -25,7 +25,7 @@ type Caixa = {
 };
 
 /* Coordenadas no viewBox 960 × 790. Ramos à esquerda (barramento do router em x=60),
-   validate → critic → finalize na coluna da direita, atalhos para finalize em x=930. */
+   validate → critic → finalize na coluna da direita, atalhos para finalize em x=920–950. */
 const RAMO = { x: 90, w: 160, h: 40 };
 const ramo = (id: string, y: number, rotulo: string, sub?: string, apelidos?: string[]): Caixa => ({
   id,
@@ -96,10 +96,11 @@ const ARESTAS: Aresta[] = [
     { de: id, para: "comprador", d: `M560,${cy(id)} C575,${cy(id)} 575,640 590,640` },
   ]),
   { de: "comprador", para: "validate", d: "M720,640 H750 V253 H780" },
-  // Atalhos direto para o finalize (barramento em x=930)
-  { de: "conceitual", para: "finalize", d: `M250,${cy("conceitual")} H930 V584 H900`, tipo: "atalho" },
-  { de: "foraDoEscopo", para: "finalize", d: `M250,${cy("foraDoEscopo")} H930 V584 H900`, tipo: "atalho" },
-  { de: "comprador", para: "finalize", d: "M655,660 V765 H930 V584 H900", tipo: "atalho", requer: "escalonou" },
+  // Atalhos direto para o finalize: cada um em sua faixa (x=950, 935, 920) e entrando
+  // no finalize em alturas diferentes, aninhados para não se cruzarem.
+  { de: "conceitual", para: "finalize", d: `M250,${cy("conceitual")} H950 V584 H900`, tipo: "atalho" },
+  { de: "foraDoEscopo", para: "finalize", d: `M250,${cy("foraDoEscopo")} H935 V572 H900`, tipo: "atalho" },
+  { de: "comprador", para: "finalize", d: "M655,660 V765 H920 V596 H900", tipo: "atalho", requer: "escalonou" },
   // Coluna da direita
   { de: "validate", para: "critic", d: "M840,278 V380" },
   { de: "critic", para: "finalize", d: "M840,430 V560" },
@@ -112,7 +113,7 @@ const ARESTAS: Aresta[] = [
 
 const ROTULOS_ARESTA = [
   { x: 72, y: 160, texto: "intenção", ancora: "start" as const },
-  { x: 925, y: 192, texto: "direto para finalize", ancora: "end" as const },
+  { x: 945, y: 192, texto: "direto para finalize", ancora: "end" as const },
   { x: 756, y: 226, texto: "reprovou: volta à origem (máx. 2)", ancora: "end" as const },
   { x: 700, y: 440, texto: "reprovou: nova rodada (máx. 2)", ancora: "end" as const },
   { x: 665, y: 755, texto: "baixa confiança: escala ao humano", ancora: "start" as const },
