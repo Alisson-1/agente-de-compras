@@ -7,7 +7,7 @@
     "os": {
       "numero": "OS-88231",
       "dataAbertura": "2026-10-22",
-      "veiculo": { "placa": "QRF2A41", "modelo": "Sedan Aurora 1.6", "ano": 2024, "km": 38200, "status": "parado na oficina" },
+      "veiculo": { "placa": "QRF2A41", "modelo": "Nissan Versa 1.6", "ano": 2024, "km": 38200, "status": "parado na oficina" },
       "localizacao": { "cidade": "Recife", "uf": "PE", "tipo": "oficina parceira", "nome": "Mecânica Parceira Boa Vista" },
       "oficinaId": "OF-REC-01",
       "diagnostico": "Cliente relatou ruído metálico ao frear. Pastilhas dianteiras no fim (2 mm) e discos dianteiros com sulco, abaixo da espessura mínima. Carro sem condição de rodar até a troca.",
@@ -26,7 +26,7 @@
     "os": {
       "numero": "OS-88305",
       "dataAbertura": "2026-10-21",
-      "veiculo": { "placa": "TKB4C18", "modelo": "Hatch Vento 1.0", "ano": 2023, "km": 40150, "status": "rodando" },
+      "veiculo": { "placa": "TKB4C18", "modelo": "Chevrolet Onix 1.0", "ano": 2023, "km": 40150, "status": "rodando" },
       "localizacao": { "cidade": "Campinas", "uf": "SP", "tipo": "pátio", "nome": "Pátio Campinas Aeroporto" },
       "oficinaId": "OF-CPS-01",
       "diagnostico": "Revisão preventiva de 40 mil km: troca de óleo e filtro de óleo, filtro de ar e velas. Agendar sem tirar o carro de operação.",
@@ -47,7 +47,7 @@
     "os": {
       "numero": "OS-88347",
       "dataAbertura": "2026-10-23",
-      "veiculo": { "placa": "MGD7E52", "modelo": "SUV Trilha 2.0", "ano": 2025, "km": 21900, "status": "parado na oficina" },
+      "veiculo": { "placa": "MGD7E52", "modelo": "Toyota Corolla Cross 2.0", "ano": 2025, "km": 21900, "status": "parado na oficina" },
       "localizacao": { "cidade": "Belo Horizonte", "uf": "MG", "tipo": "oficina parceira", "nome": "Oficina Parceira Savassi Motors" },
       "oficinaId": "OF-BHZ-01",
       "diagnostico": "Folga excessiva e vazamento na caixa de direção hidráulica. Terminais de direção com folga. Recomendada a troca da caixa completa e dos dois terminais.",
@@ -66,7 +66,7 @@
     "os": {
       "numero": "OS-88412",
       "dataAbertura": "2026-10-23",
-      "veiculo": { "placa": "PRC9F07", "modelo": "Hatch Brisa 1.3", "ano": 2024, "km": 52300, "status": "rodando" },
+      "veiculo": { "placa": "PRC9F07", "modelo": "Fiat Argo 1.3", "ano": 2024, "km": 52300, "status": "rodando" },
       "localizacao": { "cidade": "Curitiba", "uf": "PR", "tipo": "oficina parceira", "nome": "Auto Center Batel Parceiro" },
       "oficinaId": "OF-CWB-01",
       "diagnostico": "barulho na susp. dianteira lado dir., trocar bieleta e bucha, ver amortecedor",

@@ -8,7 +8,7 @@ import { carregarPrompt } from "../carregarPrompt.js";
 
 const PROMPT = carregarPrompt("priorizar");
 
-export function agentePriorizar(ctx: Contexto, pergunta: string, fila: ResumoPedido[], chunks: ChunkRag[]) {
+export function agentePriorizar(ctx: Contexto, pergunta: string, fila: ResumoPedido[], chunks: ChunkRag[], feedback: string | null) {
   return executarAgente(ctx, {
     node: "priorizar",
     nome: "priorizar_pedidos",
@@ -22,6 +22,7 @@ export function agentePriorizar(ctx: Contexto, pergunta: string, fila: ResumoPed
       "",
       "Trechos do Manual de Compras:",
       ...chunks.map((c) => `§${c.section}: ${c.text}`),
+      ...(feedback ? ["", `O crítico reprovou a versão anterior. Reescreva corrigindo isto: ${feedback}`] : []),
     ].join("\n"),
     simular: () => simulado.priorizar(fila, chunks),
   });

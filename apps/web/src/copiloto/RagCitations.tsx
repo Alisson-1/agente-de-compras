@@ -3,7 +3,7 @@
  * trecho num popover. Também mostra as buscas do turno com os scores.
  */
 import { BookOpen, X } from "lucide-react";
-import { createContext, Fragment, useContext, useEffect, useRef, useState } from "react";
+import { createContext, Fragment, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ChunkRag } from "@copiloto/shared";
 import type { SecaoManual } from "../api";
 
@@ -24,8 +24,37 @@ export function Citacao({ secao }: { secao: string }) {
   const manual = useContext(ManualContext);
   const [aberto, setAberto] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  const botaoRef = useRef<HTMLButtonElement>(null);
+  const popoverRef = useRef<HTMLSpanElement>(null);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
   const numero = secao.replace("§", "");
   const trecho = manual.find((s) => s.section === numero);
+
+  // Popover em position: fixed, preso à viewport — não estoura o container do chat.
+  useLayoutEffect(() => {
+    if (!aberto) {
+      setPos(null);
+      return;
+    }
+    const posicionar = () => {
+      const botao = botaoRef.current?.getBoundingClientRect();
+      const pop = popoverRef.current;
+      if (!botao || !pop) return;
+      const margem = 8;
+      const { width, height } = pop.getBoundingClientRect();
+      const left = Math.min(Math.max(botao.left, margem), window.innerWidth - width - margem);
+      const abaixo = botao.bottom + 6;
+      const top = abaixo + height > window.innerHeight - margem ? Math.max(botao.top - 6 - height, margem) : abaixo;
+      setPos({ top, left });
+    };
+    posicionar();
+    window.addEventListener("resize", posicionar);
+    window.addEventListener("scroll", posicionar, true);
+    return () => {
+      window.removeEventListener("resize", posicionar);
+      window.removeEventListener("scroll", posicionar, true);
+    };
+  }, [aberto]);
 
   useEffect(() => {
     if (!aberto) return;
@@ -42,11 +71,17 @@ export function Citacao({ secao }: { secao: string }) {
 
   return (
     <span className="citacao" ref={ref}>
-      <button type="button" className="citacao__botao" aria-expanded={aberto} onClick={() => setAberto((a) => !a)}>
+      <button ref={botaoRef} type="button" className="citacao__botao" aria-expanded={aberto} onClick={() => setAberto((a) => !a)}>
         <BookOpen size={14} aria-hidden="true" />§{numero}
       </button>
       {aberto ? (
-        <span className="popover" role="dialog" aria-label={`Manual de Compras §${numero}`}>
+        <span
+          ref={popoverRef}
+          className="popover"
+          role="dialog"
+          aria-label={`Manual de Compras §${numero}`}
+          style={pos ? { top: pos.top, left: pos.left } : { visibility: "hidden" }}
+        >
           <span className="popover__topo">
             <span className="popover__titulo">
               Manual de Compras §{numero}

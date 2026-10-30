@@ -77,7 +77,7 @@ export function CotacoesTable({ cotacoes, fornecedores, selecionada, recomendaca
                     {c.numero}
                     {recomendada ? (
                       <span className="selo-recomendada">
-                        <Sparkles size={14} aria-hidden="true" /> Recomendada pelo Copiloto
+                        <Sparkles size={14} aria-hidden="true" /> Recomendada pelo Cláudio
                       </span>
                     ) : null}
                     {motivo ? (

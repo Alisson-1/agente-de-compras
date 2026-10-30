@@ -52,5 +52,7 @@ export function depoisDoCritico(estado: Estado) {
   const rodada = estado.rodadaCritica ?? 0;
   if (rodada < MAX_RODADAS_CRITICO && estado.rascunho?.tipo === "recomendacao") return "comprador" as const;
   if (rodada < MAX_RODADAS_CRITICO && estado.rascunho?.tipo === "proposta") return "proporAcao" as const;
+  // Priorização reprovada: o autor reescreve com o feedback, em vez de a versão reprovada ir para a tela.
+  if (rodada < MAX_RODADAS_CRITICO && estado.origem === "priorizar") return "priorizar" as const;
   return "finalize" as const;
 }

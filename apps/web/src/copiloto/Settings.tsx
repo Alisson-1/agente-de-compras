@@ -14,7 +14,7 @@ const PROVEDORES: { id: Provedor; nome: string }[] = [
 
 export function Settings({ config, atualizar, fechar }: Props) {
   return (
-    <section className="config" aria-label="Configurações do Copiloto">
+    <section className="config" aria-label="Configurações do Cláudio">
       <h3 className="lz-text-heading-sm config__titulo">Configurações</h3>
 
       <Checkbox

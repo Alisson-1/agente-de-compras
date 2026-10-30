@@ -25,6 +25,7 @@ import { comPadrao } from "../events/emitter.js";
 import { ctxDe } from "../graph/contexto.js";
 import type { Atualizacao, Estado } from "../graph/state.js";
 import { secoesDoManual } from "../rag/search.js";
+import { listarPedidosDados, ordenarPorPrioridade } from "../tools/listarPedidos.js";
 import { marcarPasso } from "./06-planning.js";
 import { recuperar } from "./09-rag.js";
 
@@ -45,6 +46,7 @@ function consultaDoCritico(estado: Estado): string {
     return `regras para peça ${c?.tipos.join(" e ") ?? ""} em item de segurança e prazo de pedido urgente`;
   }
   if (r.tipo === "proposta") return "limite de alçada do comprador e aprovação do gestor";
+  if (estado.origem === "priorizar") return "prioridades por urgência e custo de veículo parado";
   return r.texto.slice(0, 160);
 }
 
@@ -64,22 +66,26 @@ export async function noCritico(estado: Estado, config: RunnableConfig): Promise
       : `Rodada ${rodada}: o crítico revisa a nova versão.`,
     async () => {
       const chunks: ChunkRag[] = await recuperar(ctx, consultaDoCritico(estado), "critic", 3);
+      const incluirSecao = (secao: string) => {
+        if (chunks.some((c) => c.section === secao)) return;
+        const s = secoesDoManual().find((x) => x.section === secao);
+        if (s) chunks.unshift({ source: s.source, section: s.section, text: `${s.title}. ${s.text}`, score: 1 });
+      };
       // Garante que a seção da regra violada esteja entre os trechos (vem do manual, não do LLM).
-      for (const regra of estado.validacao?.regras ?? []) {
-        if (!chunks.some((c) => c.section === regra.secaoManual)) {
-          const s = secoesDoManual().find((x) => x.section === regra.secaoManual);
-          if (s) chunks.unshift({ source: s.source, section: s.section, text: `${s.title}. ${s.text}`, score: 1 });
-        }
-      }
+      for (const regra of estado.validacao?.regras ?? []) incluirSecao(regra.secaoManual);
+      // O autor pode ter recebido trechos que a busca do crítico não trouxe: sem eles, o crítico
+      // acusaria de "inexistente" uma seção que existe. O validador já barrou as que não existem.
+      for (const s of new Set([...(rascunho.texto.match(/§\d+\.\d+/g) ?? []), ...rascunho.citacoes])) incluirSecao(s.replace("§", ""));
 
       const escolhida = estado.decisao?.ranking.find((r) => r.cotacaoId === rascunho.cotacaoId);
       const cotacao = rascunho.cotacaoId ? store.cotacoes.get(rascunho.cotacaoId) : undefined;
+      const fila = estado.origem === "priorizar" ? ordenarPorPrioridade(listarPedidosDados()) : undefined;
       const saida = await agenteCritico(ctx, {
         rascunho,
         validacao: estado.validacao ?? null,
         chunks,
         notaEscolhida: escolhida?.nota,
-        dados: { cotacao, decisao: estado.decisao, proposta: rascunho.proposta },
+        dados: { cotacao, decisao: estado.decisao, proposta: rascunho.proposta, fila },
       });
 
       // Guarda em código: validador reprovado ⇒ crítico reprovado.

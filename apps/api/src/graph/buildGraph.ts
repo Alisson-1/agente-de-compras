@@ -123,7 +123,7 @@ export function buildGraph() {
         "finalize",
       ])
       .addEdge("bloquear", "finalize")
-      .addConditionalEdges("critic", depoisDoCritico, ["finalize", "comprador", "proporAcao"])
+      .addConditionalEdges("critic", depoisDoCritico, ["finalize", "comprador", "proporAcao", "priorizar"])
       .addEdge("finalize", END)
       .compile()
   );

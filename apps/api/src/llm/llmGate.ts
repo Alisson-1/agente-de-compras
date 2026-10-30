@@ -26,7 +26,7 @@ export function chatgptConfigurado(): boolean {
   return chaveLlmGate().length > 0;
 }
 
-function textoDoCorpo(body: BodyInit): string | undefined {
+function textoDoCorpo(body: NonNullable<RequestInit["body"]>): string | undefined {
   if (typeof body === "string") return body;
   if (body instanceof Uint8Array) return new TextDecoder().decode(body);
   return undefined;

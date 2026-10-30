@@ -63,7 +63,7 @@ export async function noConceitual(estado: Estado, config: RunnableConfig): Prom
 }
 
 /** "Qual pedido devo priorizar?": ferramenta + ordem da política em código + manual. */
-export async function noPriorizar(_e: Estado, config: RunnableConfig): Promise<Atualizacao> {
+export async function noPriorizar(estado: Estado, config: RunnableConfig): Promise<Atualizacao> {
   const ctx = ctxDe(config);
   return comPadrao(
     ctx.emissor,
@@ -74,7 +74,7 @@ export async function noPriorizar(_e: Estado, config: RunnableConfig): Promise<A
       const pedidos = await chamarFerramenta<ResumoPedido[]>(ctx, "listarPedidos", {});
       const fila = ordenarPorPrioridade(pedidos);
       const chunks = await recuperar(ctx, "prioridades por urgência e custo de veículo parado", "priorizar", 3);
-      const saida = await agentePriorizar(ctx, ctx.req.mensagem ?? "", fila, chunks);
+      const saida = await agentePriorizar(ctx, ctx.req.mensagem ?? "", fila, chunks, estado.feedbackCritico ?? null);
       return {
         origem: "priorizar",
         rascunho: { tipo: "explicacao" as const, texto: saida.texto, citacoes: filtrarCitacoes(saida.citacoes, chunks) },
@@ -186,7 +186,7 @@ export async function noValidate(estado: Estado, config: RunnableConfig): Promis
   for (const id of new Set(r.texto.match(/COT-\d{4}-[A-Z0-9]+/g) ?? [])) {
     if (!store.cotacoes.has(id)) validacao.erros.push(`A resposta cita a cotação ${id}, que não existe.`);
   }
-  for (const id of new Set(r.texto.match(/PED-d{4}-d{4}/g) ?? [])) {
+  for (const id of new Set(r.texto.match(/PED-\d{4}-\d{4}/g) ?? [])) {
     if (!store.pedidos.has(id)) validacao.erros.push(`A resposta cita o pedido ${id}, que não existe.`);
   }
   for (const s of new Set([...(r.texto.match(/§(\d+\.\d+)/g) ?? []), ...r.citacoes].map((x) => x.replace("§", "")))) {

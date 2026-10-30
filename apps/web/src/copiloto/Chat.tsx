@@ -135,7 +135,7 @@ export function Chat(props: Props) {
         {props.mensagens.length === 0 ? (
           <div className="chat__vazio">
             <Bot size={32} aria-hidden="true" />
-            <p className="lz-text-heading-sm">Oi! Sou o Copiloto de Compras.</p>
+            <p className="lz-text-heading-sm">Oi! Sou o Cláudio, seu Assistente de Compras.</p>
             <p>Abra um pedido e me pergunte o que quiser. Eu recomendo e preparo propostas, mas nada muda sem a sua aprovação.</p>
           </div>
         ) : null}
@@ -164,12 +164,12 @@ export function Chat(props: Props) {
         }}
       >
         <label htmlFor="pergunta" className="sr-only">
-          Sua pergunta ao Copiloto
+          Sua pergunta ao Cláudio
         </label>
         <input
           id="pergunta"
           className="chat__campo"
-          placeholder="Pergunte ao Copiloto…"
+          placeholder="Pergunte ao Cláudio…"
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
           autoComplete="off"

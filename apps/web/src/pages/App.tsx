@@ -7,7 +7,7 @@
  * muda sem um clique humano.
  */
 import { ArrowLeft, Network, RotateCcw, Settings as IconeConfig } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import type { DecisaoComprador, EstadoTela, Intent, RecomendacaoResumo } from "@copiloto/shared";
 import { api, ErroApi, type EstadoServidor, type SecaoManual } from "../api";
 import { AcoesManuais } from "../compras/AcoesManuais";
@@ -18,11 +18,13 @@ import { PedidoList } from "../compras/PedidoList";
 import { Chat } from "../copiloto/Chat";
 import { PatternNow } from "../copiloto/PatternNow";
 import { PatternStrip } from "../copiloto/PatternStrip";
+import { AvatarClaudio } from "../copiloto/AvatarClaudio";
 import { AbrirPedidoContext, ManualContext } from "../copiloto/RagCitations";
 import { Settings } from "../copiloto/Settings";
 import { SuggestionChips } from "../copiloto/SuggestionChips";
 import { Alert, Button, IconButton } from "../design-system/localiza/components";
 import { useAgentStream, type MensagemUI } from "../hooks/useAgentStream";
+import { useLarguraChat } from "../hooks/useLarguraChat";
 import { useScreenEvents } from "../hooks/useScreenEvents";
 import { useSettings } from "../hooks/useSettings";
 import { Arquitetura } from "./Arquitetura";
@@ -52,6 +54,7 @@ function pedidoDoHash(): string | null {
 
 export function App() {
   const { config, atualizar } = useSettings();
+  const { largura: larguraChat, painelRef: painelChatRef, divisorProps, minimo: minimoChat } = useLarguraChat();
   const [estado, setEstado] = useState<EstadoServidor | null>(null);
   const [erroCarga, setErroCarga] = useState<string | null>(null);
   const [manual, setManual] = useState<SecaoManual[]>([]);
@@ -163,7 +166,10 @@ export function App() {
       if (e.type === "pattern_start") nos.add(e.node);
       if (e.type === "route") nos.add(NO_DA_INTENCAO[e.intent]);
       if (e.type === "validation") nos.add("validate");
+      if (e.type === "validation" && !e.ok) nos.add("validador-reprovou");
       if (e.type === "reflection") nos.add("critic");
+      if (e.type === "reflection" && !e.approved) nos.add("critico-reprovou");
+      if (e.type === "hitl" && e.kind === "escalonamento") nos.add("escalonou");
       if (e.type === "message" || e.type === "hitl") nos.add("finalize");
     }
     return nos;
@@ -272,10 +278,7 @@ export function App() {
       <AbrirPedidoContext.Provider value={abrirPedido}>
       <div className="app">
         <header className="topo">
-          <div>
-            <h1 className="topo__titulo">Copiloto de Compras de Peças</h1>
-            <p className="topo__sub">Demo de padrões de design agêntico · compras de reposição da frota</p>
-          </div>
+          <h1 className="topo__titulo">LocalizeAI</h1>
           <div className="topo__acoes">
             {naArquitetura ? (
               <Button variant="inverse" size="sm" onClick={voltarParaLista}>
@@ -292,7 +295,10 @@ export function App() {
           </div>
         </header>
 
-        <main className="colunas">
+        <main
+          className={`colunas ${larguraChat !== null ? "colunas--ajustada" : ""}`}
+          style={larguraChat !== null ? ({ "--largura-chat": `${larguraChat}px` } as CSSProperties) : undefined}
+        >
           <section className="tela" aria-label="Tela de Compras">
             {erroCarga ? (
               <Alert tone="critical" title="API indisponível">
@@ -301,7 +307,7 @@ export function App() {
             ) : null}
 
             {naArquitetura ? (
-              <Arquitetura ativos={nosAtivos} percorridos={nosPercorridos} pedidoContexto={pedidoCopilotoId} aoAbrirPedidos={voltarParaLista} />
+              <Arquitetura ativos={nosAtivos} percorridos={nosPercorridos} />
             ) : pedido ? (
               <>
                 <button type="button" className="voltar" onClick={voltarParaLista}>
@@ -348,20 +354,31 @@ export function App() {
             ) : (
               <PedidoList
                 pedidos={estado?.pedidos ?? []}
-                cotacoes={estado?.cotacoes ?? []}
-                custoParadoPorDia={estado?.politica.custoCarroParadoPorDia ?? 0}
                 aoAbrir={abrirPedido}
               />
             )}
           </section>
 
-          <aside className="copiloto" aria-label="Copiloto de Compras">
+          <aside className="copiloto" aria-label="Cláudio - Assistente de Compras" ref={painelChatRef}>
+            <div
+              className="divisor"
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="Redimensionar o chat (setas; duplo clique volta ao padrão)"
+              aria-valuemin={minimoChat}
+              aria-valuenow={larguraChat ?? undefined}
+              tabIndex={0}
+              {...divisorProps}
+            />
             <div className="copiloto__topo">
-              <div>
-                <h2 className="copiloto__titulo">Copiloto de Compras</h2>
-                <span className={`selo-modo ${config.simulado ? "selo-modo--simulado" : "selo-modo--real"}`}>
-                  {config.simulado ? "Modo simulado" : `LLM real: ${config.modelo}`}
-                </span>
+              <div className="copiloto__identidade">
+                <AvatarClaudio />
+                <div>
+                  <h2 className="copiloto__titulo">Cláudio - Assistente de Compras</h2>
+                  <span className={`selo-modo ${config.simulado ? "selo-modo--simulado" : "selo-modo--real"}`}>
+                    {config.simulado ? "Modo simulado" : `LLM real: ${config.modelo}`}
+                  </span>
+                </div>
               </div>
               <IconButton label="Configurações" variant="filled" size="sm" onClick={() => setConfigAberta((a) => !a)} aria-expanded={configAberta}>
                 <IconeConfig aria-hidden="true" />
@@ -393,8 +410,6 @@ export function App() {
             />
           </aside>
         </main>
-
-        <footer className="rodape">Dados fictícios para fins didáticos. Sem relação com empresas reais.</footer>
       </div>
       </AbrirPedidoContext.Provider>
     </ManualContext.Provider>

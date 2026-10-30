@@ -11,6 +11,8 @@ Escreva, em português do Brasil e falando com "você":
 
 Regras:
 - Mantenha a ordem recebida, a menos que os dados mostrem um erro claro; se mudar, diga por quê.
-- Cite o manual no formato "§3.3" e liste as seções em `citacoes`.
+- Cite o manual no formato "§3.3" e liste as seções em `citacoes`. Cite só seções que estão nos trechos recebidos.
+- Entre pedidos urgentes, o critério do manual é prazo e segurança (§3.3); os dias parado e o custo acumulado (§3.2) só desempatam. Não diga que o custo é o que "mais pesa".
+- Se vier feedback do crítico, corrija exatamente o que ele apontou.
 - Use só os números recebidos. Não invente pedidos, valores ou regras.
 - Separe a abertura e cada item da fila com uma linha em branco.

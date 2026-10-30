@@ -38,14 +38,14 @@
         "descricao": "Pastilha de freio dianteira (jogo)",
         "quantidade": 1,
         "precoUnitario": 260,
-        "marca": "Montadora Aurora",
+        "marca": "Nissan (original)",
         "tipo": "original"
       },
       {
         "descricao": "Disco de freio dianteiro",
         "quantidade": 2,
         "precoUnitario": 420,
-        "marca": "Montadora Aurora",
+        "marca": "Nissan (original)",
         "tipo": "original"
       }
     ],
@@ -92,14 +92,14 @@
         "descricao": "Pastilha de freio dianteira (jogo)",
         "quantidade": 1,
         "precoUnitario": 180,
-        "marca": "Montadora Aurora",
+        "marca": "Nissan (original)",
         "tipo": "original"
       },
       {
         "descricao": "Disco de freio dianteiro",
         "quantidade": 2,
         "precoUnitario": 260,
-        "marca": "Montadora Aurora",
+        "marca": "Nissan (original)",
         "tipo": "original"
       }
     ],
@@ -160,28 +160,28 @@
         "descricao": "Filtro de óleo",
         "quantidade": 1,
         "precoUnitario": 45,
-        "marca": "Montadora Vento",
+        "marca": "Chevrolet (original)",
         "tipo": "original"
       },
       {
         "descricao": "Óleo de motor 5W30 (litro)",
         "quantidade": 4,
         "precoUnitario": 48,
-        "marca": "Montadora Vento",
+        "marca": "Chevrolet (original)",
         "tipo": "original"
       },
       {
         "descricao": "Filtro de ar do motor",
         "quantidade": 1,
         "precoUnitario": 62,
-        "marca": "Montadora Vento",
+        "marca": "Chevrolet (original)",
         "tipo": "original"
       },
       {
         "descricao": "Vela de ignição (jogo com 4)",
         "quantidade": 1,
         "precoUnitario": 190,
-        "marca": "Montadora Vento",
+        "marca": "Chevrolet (original)",
         "tipo": "original"
       }
     ],
@@ -283,14 +283,14 @@
         "descricao": "Caixa de direção hidráulica",
         "quantidade": 1,
         "precoUnitario": 5480,
-        "marca": "Montadora Trilha",
+        "marca": "Toyota (original)",
         "tipo": "original"
       },
       {
         "descricao": "Terminal de direção",
         "quantidade": 2,
         "precoUnitario": 190,
-        "marca": "Montadora Trilha",
+        "marca": "Toyota (original)",
         "tipo": "original"
       }
     ],
@@ -364,14 +364,14 @@
         "descricao": "Caixa de direção hidráulica",
         "quantidade": 1,
         "precoUnitario": 6900,
-        "marca": "Montadora Trilha",
+        "marca": "Toyota (original)",
         "tipo": "original"
       },
       {
         "descricao": "Terminal de direção",
         "quantidade": 2,
         "precoUnitario": 210,
-        "marca": "Montadora Trilha",
+        "marca": "Toyota (original)",
         "tipo": "original"
       }
     ],
@@ -418,14 +418,14 @@
         "descricao": "Bieleta dianteira direita",
         "quantidade": 1,
         "precoUnitario": 160,
-        "marca": "Montadora Brisa",
+        "marca": "Fiat (original)",
         "tipo": "original"
       },
       {
         "descricao": "Bucha da bandeja dianteira direita",
         "quantidade": 1,
         "precoUnitario": 92,
-        "marca": "Montadora Brisa",
+        "marca": "Fiat (original)",
         "tipo": "original"
       }
     ],
